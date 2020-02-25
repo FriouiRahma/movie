@@ -3,7 +3,6 @@ import Recherche from './recherche';
 import './App.css';
 import AddModal from './modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Example from './exemple';
 import Rate from './rate';
 
 import React, { Component } from 'react';
@@ -38,7 +37,8 @@ class App extends Component {
 
       ],
       rate : 1,
-      keyword:""
+      keyword:"",
+      isLoding:true
 
 
     }
@@ -60,6 +60,10 @@ class App extends Component {
       rate : r
     })
   }
+  componentDidMount (){
+    setTimeout(()=> this.setState({isLoding:false}),1000)
+
+  }
 
   render() {
     return (
@@ -69,7 +73,7 @@ class App extends Component {
         {/* {this.state.class && <Example/>} */}
         <Rate  movieRating={this.state.rate}  setRate={(Rate)=>{this.addByoneRate(Rate)} }/>
         <AddModal addmovie={(movie) => {this.addmodel(movie) }} />
-        <List liste={this.state.inform.filter( el=>  el.rate>=this.state.rate   &&   el.title.toUpperCase().includes(this.state.keyword.toUpperCase().trim())) } />
+        <List  isLoding={this.state.isLoding}  liste={this.state.inform.filter( el=>  el.rate>=this.state.rate   &&   el.title.toUpperCase().includes(this.state.keyword.toUpperCase().trim())) } />
 
           
       </div>

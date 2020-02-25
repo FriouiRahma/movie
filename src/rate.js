@@ -17,7 +17,7 @@ class Rate extends Component {
 
     render() {
         let arr = []
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 5; i++) {
             if (i < this.props.movieRating) arr.push(<i onClick={() => this.props.setRate(i + 1)} class="fal fa-star">★</i>)
             else arr.push(<i onClick={() => this.props.setRate(i + 1)} class="fal fa-star">☆</i>)
         }

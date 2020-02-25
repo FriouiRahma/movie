@@ -1,7 +1,7 @@
 import React from 'react';
 // import Onemov from './onemovie';
-import Rate from "./rate"
-
+import Rate from "./rate";
+import Hoc from "./HOC";
 const List = (props) => {
 
     return (
@@ -27,4 +27,4 @@ const List = (props) => {
 
 }
 
-export default List;
+export default Hoc(List);
